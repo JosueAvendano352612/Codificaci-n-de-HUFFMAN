@@ -1,0 +1,27 @@
+from collections import Counter
+
+def contar_caracteres_lineas(archivo_entrada, archivo_salida):
+    try: 
+        with open(archivo_entrada, 'r', encoding='utf-8') as f_in: 
+            contenido = f_in.readlines()  
+            num_lineas = len(contenido)  
+            contenido = ''.join(contenido)  
+            frecuencia_caracteres = Counter(contenido)
+            caracteres_ordenados = sorted(frecuencia_caracteres.items(), key=lambda x: x[1], reverse=True)  
+            with open(archivo_salida, 'w', encoding='utf-8') as f_out:
+                f_out.write("Caracteres ordenados por frecuencia:\n")
+                print("Caracteres ordenados por frecuencia: ")
+                for caracter, frecuencia in caracteres_ordenados:
+                    print(f"{caracter}: {frecuencia}")
+                    f_out.write(f"{caracter}: {frecuencia}\n")
+                f_out.write(f"Número total de líneas: {num_lineas}\n")
+                print(f"Numero total de lineas: {num_lineas}")  
+            print(f"Resultados guardados en '{archivo_salida}'")
+    except FileNotFoundError:
+        print(f"El archivo '{archivo_entrada}' no se encontró.")
+    except Exception as e:
+        print(f"Ocurrió un error: {e}")
+
+nombre_archivo_entrada = 'Gullivers_Travels.txt'
+nombre_archivo_salida = 'resultados.txt'
+contar_caracteres_lineas(nombre_archivo_entrada, nombre_archivo_salida)
