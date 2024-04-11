@@ -1,2 +1,2 @@
 # Codificacion-de-HUFFMAN
-Se trabajara en este repositoria una actividad haciendo Codificacion de HUFFMA
+Se trabajara en este repositoria una actividad haciendo Codificacion de HUFFMAN
